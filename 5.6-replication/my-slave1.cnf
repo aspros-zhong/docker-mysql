@@ -1,0 +1,37 @@
+[client]
+default-character-set = utf8
+[mysql]
+default-character-set = utf8
+[mysqld]
+explicit_defaults_for_timestamp = true
+innodb_flush_log_at_trx_commit = 2
+max_connections = 1024
+innodb_buffer_pool_size = 128M
+slow_query_log = 1
+long_query_time = 3
+expire_logs_days = 5
+log-bin = mysql-bin
+relay-log = relay-log
+binlog_format = mixed
+server-id = 10
+gtid-mode = on
+log_slave_updates = on
+enforce-gtid-consistency = true
+master-info-repository = TABLE
+relay-log-info-repository = TABLE
+innodb_flush_method = O_DIRECT
+character-set-server = utf8
+sync-master-info = 1
+slave-parallel-workers = 2
+binlog-checksum = CRC32
+master-verify-checksum = 1
+slave-sql-verify-checksum = 1
+binlog-rows-query-log_events = 1
+innodb_log_files_in_group = 3
+innodb_log_file_size = 200M
+lower_case_table_names = 1
+user = mysql
+log_bin_trust_function_creators = 1
+skip-external-locking
+report-port = {{MySQLPort}}
+report-host = {{Slave1IP}}
